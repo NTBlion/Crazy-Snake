@@ -4,19 +4,29 @@ using UnityEngine;
 namespace Movement
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    internal class ForwardMovement : MonoBehaviour
+    internal class Movement : MonoBehaviour
     {
         [SerializeField] private float _speed;
         [SerializeField] private Rigidbody2D _rigidbody;
 
         private Vector2 _direction;
 
-        private void Awake()
+        private void Update()
         {
-            _direction =transform.right * (_speed * Time.deltaTime);
+            _direction =transform.right * (_speed * Time.fixedDeltaTime);
+        }
+
+        internal void Activate()
+        {
+            Move();
+        }
+
+        internal void Deactivate()
+        {
+            _rigidbody.Sleep();
         }
         
-        internal void MoveForward()
+        private void Move()
         {
             _rigidbody.MovePosition(_rigidbody.position + _direction);
         }

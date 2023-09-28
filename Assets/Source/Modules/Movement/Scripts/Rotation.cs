@@ -8,15 +8,10 @@ namespace Movement
     {
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private float _rotationSpeed;
-        
+
         internal void Rotate(float direction)
         {
-            if (direction > 0)
-                direction = 1;
-            else
-                direction = -1;
-
-            _rigidbody.rotation += direction * _rotationSpeed * Time.deltaTime;
+            _rigidbody.MoveRotation(_rigidbody.rotation + (direction * _rotationSpeed) * Time.fixedDeltaTime);
         }
     }
 }
