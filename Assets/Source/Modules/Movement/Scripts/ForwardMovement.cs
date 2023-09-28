@@ -18,7 +18,7 @@ namespace Movement
         
         internal void MoveForward()
         {
-            _rigidbody.velocity = transform.right * (_speed * Time.deltaTime);
+            _rigidbody.MovePosition(_rigidbody.position + _direction);
         }
     }
 }
