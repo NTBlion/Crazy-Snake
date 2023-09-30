@@ -1,5 +1,3 @@
-using System;
-using System.Timers;
 using UnityEngine;
 
 namespace Movement

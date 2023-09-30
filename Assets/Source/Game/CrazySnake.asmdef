@@ -1,0 +1,16 @@
+{
+    "name": "CrazySnake",
+    "rootNamespace": "CrazySnake",
+    "references": [
+        "GUID:4f393b66f9e24c14e90668fcffae8bb8"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
