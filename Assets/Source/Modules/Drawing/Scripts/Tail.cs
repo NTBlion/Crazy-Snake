@@ -10,6 +10,7 @@ namespace Drawing
         [SerializeField] private float _distanceBetweenPoints = 0.1f;
 
         private readonly List<Vector2> _points = new List<Vector2>();
+        
         private void OnValidate()
         {
             if (_distanceBetweenPoints < 0.1f)
@@ -27,8 +28,8 @@ namespace Drawing
                 return;
             
             _points.Add(position);
-            
             _line.positionCount++;
+            
             _line.SetPosition(_line.positionCount - 1, position);
 
             _collider.points = _points.ToArray();

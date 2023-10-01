@@ -237,8 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tail: {fileID: 7069217121703829764, guid: 80068040c70e57d41ac5ff44c2bb00ac, type: 3}
-  _gameObject: {fileID: 0}
-  _canGenerate: 0
+  _followTarget: {fileID: 2081062085}
 --- !u!4 &1055287345
 Transform:
   m_ObjectHideFlags: 0

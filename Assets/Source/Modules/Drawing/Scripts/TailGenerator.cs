@@ -1,12 +1,12 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Drawing
 {
     public class TailGenerator : MonoBehaviour
     {
         [SerializeField] private Tail _tail;
-        [SerializeField] private SpawnPoint _spawnPoint;
-        [SerializeField] private bool _canGenerate;
+        [SerializeField] private SpawnPoint _followTarget;
 
         private Tail _currentTail;
 
@@ -18,12 +18,12 @@ namespace Drawing
         private void Update()
         {
             if (_currentTail != null)
-                _currentTail.SetPosition(_spawnPoint.transform.position);
+                _currentTail.SetPosition(_followTarget.transform.position);
         }
 
         internal void Generate()
         {
-            _currentTail = Instantiate(_tail, _spawnPoint.transform.position, Quaternion.identity);
+            _currentTail = Instantiate(_tail, _followTarget.transform.position, Quaternion.identity);
         }
     }
 }
