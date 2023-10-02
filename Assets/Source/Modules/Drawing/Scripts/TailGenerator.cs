@@ -1,12 +1,13 @@
+using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Drawing
 {
     public class TailGenerator : MonoBehaviour
     {
         [SerializeField] private Tail _tail;
-        [SerializeField] private SpawnPoint _followTarget;
+        [SerializeField] private FollowTarget _followTarget;
+        [SerializeField] private float _tailDrawDelay;
 
         private Tail _currentTail;
 
@@ -17,8 +18,7 @@ namespace Drawing
 
         private void Update()
         {
-            if (_currentTail != null)
-                _currentTail.SetPosition(_followTarget.transform.position);
+            _currentTail.DrawLine(_followTarget.transform.position);
         }
 
         internal void Generate()

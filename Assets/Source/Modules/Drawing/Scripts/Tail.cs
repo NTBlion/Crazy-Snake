@@ -22,16 +22,16 @@ namespace Drawing
             _collider.transform.position -= transform.position;
         }
 
-        internal void SetPosition(Vector2 position)
+        internal void DrawLine(Vector2 position)
         {
             if (CanAppend(position) == false)
                 return;
             
             _points.Add(position);
-            _line.positionCount++;
             
+            _line.positionCount++;
             _line.SetPosition(_line.positionCount - 1, position);
-
+            
             _collider.points = _points.ToArray();
         }
 

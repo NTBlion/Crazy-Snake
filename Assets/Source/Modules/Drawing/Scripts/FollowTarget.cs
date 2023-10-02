@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Drawing
 {
-    internal class SpawnPoint : MonoBehaviour
+    internal class FollowTarget : MonoBehaviour
     {
         
     }
