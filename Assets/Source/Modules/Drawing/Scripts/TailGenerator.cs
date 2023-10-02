@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 namespace Drawing
@@ -7,23 +6,15 @@ namespace Drawing
     {
         [SerializeField] private Tail _tail;
         [SerializeField] private FollowTarget _followTarget;
-        [SerializeField] private float _tailDrawDelay;
-
-        private Tail _currentTail;
 
         private void Awake()
         {
             Generate();
         }
-
-        private void Update()
+        
+        public void Generate()
         {
-            _currentTail.DrawLine(_followTarget.transform.position);
-        }
-
-        internal void Generate()
-        {
-            _currentTail = Instantiate(_tail, _followTarget.transform.position, Quaternion.identity);
+            Instantiate(_tail, _followTarget.transform.position, Quaternion.identity, _followTarget.transform);
         }
     }
 }
