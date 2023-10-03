@@ -121,7 +121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _line: {fileID: 1625519115856568262}
   _collider: {fileID: 7852603952408454446}
-  _distanceBetweenPoints: 0.2
+  _distanceBetweenPoints: 0.1
+  _maxLength: 10
 --- !u!120 &1625519115856568262
 LineRenderer:
   serializedVersion: 2

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,9 +9,12 @@ namespace Drawing
         [SerializeField] private LineRenderer _line;
         [SerializeField] private EdgeCollider2D _collider;
         [SerializeField] private float _distanceBetweenPoints = 0.1f;
+        [SerializeField] private int _maxLength = 10;
 
-        private readonly List<Vector2> _points = new List<Vector2>();
-        
+        private readonly List<Vector2> _points = new();
+
+        internal event Action ReachedMaxLength;
+
         private void OnValidate()
         {
             if (_distanceBetweenPoints < 0.1f)
@@ -26,20 +30,42 @@ namespace Drawing
         {
             if (CanAppend(position) == false)
                 return;
-            
+
             _points.Add(position);
-            
+
             _line.positionCount++;
             _line.SetPosition(_line.positionCount - 1, position);
-            
             _collider.points = _points.ToArray();
         }
 
         private bool CanAppend(Vector2 position)
         {
             if (_line.positionCount == 0)
+            {
                 return true;
+            }
 
+            if (_line.positionCount > _maxLength)
+            {
+                ReachedMaxLength?.Invoke();
+                return false;
+            }
+
+            return CheckDistance(position);
+        }
+
+        internal void DisableMesh()
+        {
+            _line.enabled = false;
+        }
+        
+        internal void MakeTrigger()
+        {
+            _collider.enabled = false;
+        }
+        
+        private bool CheckDistance(Vector2 position)
+        {
             return Vector2.Distance(_line.GetPosition(_line.positionCount - 1), position) > _distanceBetweenPoints;
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,11 +8,16 @@ namespace Drawing
     {
         [SerializeField] private Tail _tail;
         [SerializeField] private FollowTarget _followTarget;
-        [SerializeField] private float _tailDrawDelay;
+        [SerializeField] private TailContainer _tailContainer;
 
         private Tail _currentTail;
 
-        private void Awake()
+        private void OnDisable()
+        {
+            _currentTail.ReachedMaxLength -= OnReachedMaxLength;
+        }
+
+        private void Start()
         {
             Generate();
         }
@@ -23,7 +29,14 @@ namespace Drawing
 
         internal void Generate()
         {
-            _currentTail = Instantiate(_tail, _followTarget.transform.position, Quaternion.identity);
+            _currentTail = Instantiate(_tail, _followTarget.transform.position, Quaternion.identity,_tailContainer.transform);
+            _tailContainer.AddTail(_currentTail);
+            _currentTail.ReachedMaxLength += OnReachedMaxLength;
+        }
+
+        private void OnReachedMaxLength()
+        {
+            Generate();
         }
     }
 }
