@@ -53,14 +53,10 @@ namespace Drawing
 
             return CheckDistance(position);
         }
-
-        internal void DisableMesh()
-        {
-            _line.enabled = false;
-        }
         
         internal void MakeTrigger()
         {
+            _line.enabled = false;
             _collider.enabled = false;
         }
         

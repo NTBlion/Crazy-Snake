@@ -26,7 +26,6 @@ namespace Drawing
         {
             if (_count % 4 == 0)
             {
-                _tails[_count-1].DisableMesh();
                 _tails[_count - 1].MakeTrigger();
             }
         }
