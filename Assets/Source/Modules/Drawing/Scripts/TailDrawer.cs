@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -17,29 +16,12 @@ namespace Drawing
         public void EnableDrawing()
         {
             _tail = _tailGenerator.Generate(_followTarget.Position);
-            StartCoroutine(TailUpdating());
+            _tailUpdating = StartCoroutine(TailUpdating());
         }
-
+        
         private IEnumerator TailUpdating()
         {
             for (int i = 0; i < _tailLenght; i++)
-            {
-                if (_tail.CanAppend(_followTarget.Position))
-                {
-                    _tail.DrawLine(_followTarget.Position);
-                }
-                else
-                {
-                    i--;
-                }
-
-                yield return null;
-            }
-        }
-
-        private IEnumerator TailUpdating2()
-        {
-            for(int i = 0; i < _tailLenght; i++)
             {
                 yield return new WaitUntil(() => _tail.CanAppend(_followTarget.Position));
                 _tail.DrawLine(_followTarget.Position);
