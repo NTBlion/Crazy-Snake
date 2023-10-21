@@ -14,7 +14,7 @@ namespace Drawing
         [SerializeField] [Min(1)] private int _lenght;
         [SerializeField] [Min(0.1f)] private float _distanceBetweenPoints = 0.1f;
 
-        public bool IsDrawn => _lenght >= _line.positionCount;
+        public bool IsDrawn => _lenght <= _line.positionCount;
 
         internal void Init()
         {

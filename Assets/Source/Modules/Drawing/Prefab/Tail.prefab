@@ -122,7 +122,7 @@ MonoBehaviour:
   _line: {fileID: 1625519115856568262}
   _collider: {fileID: 7852603952408454446}
   _lenght: 10
-  _distanceBetweenPoints: 4
+  _distanceBetweenPoints: 0.1
 --- !u!120 &1625519115856568262
 LineRenderer:
   serializedVersion: 2

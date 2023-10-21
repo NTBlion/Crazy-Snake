@@ -269,7 +269,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tail: {fileID: 7069217121703829764, guid: 80068040c70e57d41ac5ff44c2bb00ac, type: 3}
-  _tail1: {fileID: 7069217121703829764, guid: 353aeda3c533dfd4bba7fe8007af9c76, type: 3}
 --- !u!4 &1055287345
 Transform:
   m_ObjectHideFlags: 0
@@ -618,6 +617,51 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!1 &2033336493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2033336495}
+  - component: {fileID: 2033336494}
+  m_Layer: 0
+  m_Name: ScoreTailGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2033336494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033336493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523591ea0927fb54bad598f9a5ef48d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tail: {fileID: 7069217121703829764, guid: 353aeda3c533dfd4bba7fe8007af9c76, type: 3}
+--- !u!4 &2033336495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033336493}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.19, y: 3.48, z: -0.080150306}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2037165334
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,9 +692,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tailGenerator: {fileID: 1055287344}
+  _scoreTailGenerator: {fileID: 2033336494}
   _followTarget: {fileID: 2081062085}
-  _tailLenght: 20
-  _scoreZoneLenght: 10
 --- !u!4 &2037165336
 Transform:
   m_ObjectHideFlags: 0
@@ -717,6 +760,7 @@ SceneRoots:
   - {fileID: 1537221616}
   - {fileID: 2037165336}
   - {fileID: 1055287345}
+  - {fileID: 2033336495}
   - {fileID: 1347454970}
   - {fileID: 1721068924}
   - {fileID: 756198265}
