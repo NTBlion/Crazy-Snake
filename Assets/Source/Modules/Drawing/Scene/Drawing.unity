@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tail: {fileID: 7069217121703829764, guid: 80068040c70e57d41ac5ff44c2bb00ac, type: 3}
+  _tail1: {fileID: 7069217121703829764, guid: 353aeda3c533dfd4bba7fe8007af9c76, type: 3}
 --- !u!4 &1055287345
 Transform:
   m_ObjectHideFlags: 0
@@ -648,8 +649,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tailGenerator: {fileID: 1055287344}
   _followTarget: {fileID: 2081062085}
-  _tailLenght: 4
-  _scoreZoneLenght: 4
+  _tailLenght: 20
+  _scoreZoneLenght: 10
 --- !u!4 &2037165336
 Transform:
   m_ObjectHideFlags: 0
@@ -713,9 +714,9 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1537221616}
   - {fileID: 2037165336}
   - {fileID: 1055287345}
   - {fileID: 1347454970}
-  - {fileID: 1537221616}
   - {fileID: 1721068924}
   - {fileID: 756198265}

@@ -61,7 +61,7 @@ EdgeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 7069217121703829764}
   - component: {fileID: 1625519115856568262}
   m_Layer: 0
-  m_Name: Tail
+  m_Name: Tail 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,8 +121,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _line: {fileID: 1625519115856568262}
   _collider: {fileID: 7852603952408454446}
-  _lenght: 10
-  _distanceBetweenPoints: 4
+  _lenght: 5
+  _distanceBetweenPoints: 3
 --- !u!120 &1625519115856568262
 LineRenderer:
   serializedVersion: 2
@@ -144,7 +144,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f8a8876ac5f077647b2f7538f3914d59, type: 2}
+  - {fileID: 2100000, guid: 184cb059680bbeb47b1bc6ccc354f8d9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
