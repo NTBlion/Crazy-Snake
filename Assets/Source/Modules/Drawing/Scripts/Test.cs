@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Drawing
@@ -8,7 +9,7 @@ namespace Drawing
 
         private void Awake()
         {
-            _tailDrawer.EnableDrawing();
+            _tailDrawer.StartDrawing();
         }
     }
 }

@@ -1,15 +1,20 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Drawing
 {
-    internal class Tail : MonoBehaviour
+    public class Tail : MonoBehaviour
     {
         private readonly List<Vector2> _points = new();
 
         [SerializeField] private LineRenderer _line;
         [SerializeField] private EdgeCollider2D _collider;
+
+        [SerializeField] [Min(1)] private int _lenght;
         [SerializeField] [Min(0.1f)] private float _distanceBetweenPoints = 0.1f;
+
+        internal bool IsDrawn => _lenght <= _line.positionCount;
 
         internal void Init()
         {
@@ -18,6 +23,11 @@ namespace Drawing
 
         internal void DrawLine(Vector2 position)
         {
+            if (IsDrawn)
+            {
+                throw new AggregateException("Tail is already drawn");
+            }
+            
             _points.Add(position);
 
             _line.positionCount++;
