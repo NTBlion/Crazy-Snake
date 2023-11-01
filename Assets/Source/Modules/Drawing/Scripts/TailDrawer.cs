@@ -5,17 +5,25 @@ namespace Drawing
 {
     public class TailDrawer : MonoBehaviour
     {
-        [SerializeField] private TailGenerator _tailGenerator;
-        [SerializeField] private TailGenerator _scoreTailGenerator;
         [SerializeField] private FollowTarget _followTarget;
 
+        private ITailGenerator _physicsTailGenerator;
+        private ITailGenerator _scoreZoneGenerator;
+        
         private Coroutine _tailUpdating;
         private Tail _tail;
+        
         private bool _isScoreTail;
 
+        public void Init(ITailGenerator physicsTailGenerator, ITailGenerator scoreTailGenerator)
+        {
+            _physicsTailGenerator = physicsTailGenerator;
+            _scoreZoneGenerator = scoreTailGenerator;
+        }
+        
         public void StartDrawing()
         {
-            SetTail(_tailGenerator);
+            SetTail(_physicsTailGenerator);
             _tailUpdating = StartCoroutine(TailUpdating());
         }
 
@@ -35,18 +43,18 @@ namespace Drawing
         {
             if (_isScoreTail)
             {
-                SetTail(_tailGenerator);
+                SetTail(_physicsTailGenerator);
             }
             else
             {
-                SetTail(_scoreTailGenerator);
+                SetTail(_scoreZoneGenerator);
             }
         }
 
-        private void SetTail(TailGenerator generator)
+        private void SetTail(ITailGenerator generator)
         {
             _tail = generator.Generate(_followTarget.Position);
-            _isScoreTail = generator == _scoreTailGenerator;
+            _isScoreTail = generator == _scoreZoneGenerator;
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Drawing
 {
-    internal class Tail : MonoBehaviour
+    public class Tail : MonoBehaviour
     {
         private readonly List<Vector2> _points = new();
 
@@ -14,7 +14,7 @@ namespace Drawing
         [SerializeField] [Min(1)] private int _lenght;
         [SerializeField] [Min(0.1f)] private float _distanceBetweenPoints = 0.1f;
 
-        public bool IsDrawn => _lenght <= _line.positionCount;
+        internal bool IsDrawn => _lenght <= _line.positionCount;
 
         internal void Init()
         {

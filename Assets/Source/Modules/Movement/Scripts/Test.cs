@@ -26,8 +26,6 @@ namespace Movement
                 _movement.Activate();
             else
                 _movement.Deactivate();
-
-            
         }
     }
 }
