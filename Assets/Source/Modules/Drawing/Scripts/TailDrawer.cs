@@ -9,10 +9,10 @@ namespace Drawing
 
         private ITailGenerator _physicsTailGenerator;
         private ITailGenerator _scoreZoneGenerator;
-        
+
         private Coroutine _tailUpdating;
         private Tail _tail;
-        
+
         private bool _isScoreTail;
 
         public void Init(ITailGenerator physicsTailGenerator, ITailGenerator scoreTailGenerator)
@@ -20,7 +20,7 @@ namespace Drawing
             _physicsTailGenerator = physicsTailGenerator;
             _scoreZoneGenerator = scoreTailGenerator;
         }
-        
+
         public void StartDrawing()
         {
             SetTail(_physicsTailGenerator);
@@ -42,13 +42,9 @@ namespace Drawing
         private void SwitchTail()
         {
             if (_isScoreTail)
-            {
                 SetTail(_physicsTailGenerator);
-            }
             else
-            {
                 SetTail(_scoreZoneGenerator);
-            }
         }
 
         private void SetTail(ITailGenerator generator)

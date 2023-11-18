@@ -1,6 +1,6 @@
 {
-    "name": "Collision",
-    "rootNamespace": "Collision",
+    "name": "Snake",
+    "rootNamespace": "Snake",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
