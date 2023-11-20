@@ -1,20 +1,27 @@
 using System;
 using UnityEngine;
 
-public class Score : MonoBehaviour
+namespace Score
 {
-    [SerializeField] private int _winConditionPoints;
-    private int _points;
-
-    public event Action GotWinCondition;
-
-    public void AddPoints(int points)
+    public class Score : MonoBehaviour
     {
-        _points += points;
+        [SerializeField] [Range(1,10)] private int _pointsToAdd;
+        [SerializeField] private int _winConditionPoints;
+        
+        private int _points;
 
-        if (_points != _winConditionPoints)
-            return;
+        public event Action GotWinCondition;
 
-        GotWinCondition?.Invoke();
+        public void AddPoints(int points)
+        {
+            _points += points;
+
+            if (_points != _winConditionPoints)
+                return;
+
+            GotWinCondition?.Invoke();
+        }
+
+        public void ClearPoints() => _points = 0;
     }
 }
