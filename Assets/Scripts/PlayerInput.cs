@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerInput : IInput
+public class PlayerInput : MonoBehaviour, IInput
 {
-    public override Vector2 Direction => throw new NotImplementedException();
+    public Vector2 Direction { get; }
 }

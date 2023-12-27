@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class IInput : MonoBehaviour
+public interface IInput
 {
-    public abstract Vector2 Direction { get; }
+    Vector2 Direction { get; }
 }
